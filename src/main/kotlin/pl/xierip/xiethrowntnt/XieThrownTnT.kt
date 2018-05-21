@@ -86,6 +86,7 @@ class XieThrownTnT : JavaPlugin() {
             print("Nie udalo sie zarejestowac komendy!")
             e.printStackTrace()
         }
+        MetricsLite(this)
     }
 
     override fun onDisable() {
