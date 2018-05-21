@@ -1,0 +1,28 @@
+Xierip:
+  XieThrownTnT:
+    Item:
+      id: 46
+      data: 0
+      amount: 4
+      name: "&cRzucane tnt"
+      lore:
+        - "&cMozesz je rzucac co 10 sekund"
+        - "&aWyceluj dobrze!"
+#enchanty: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/enchantments/Enchantment.html
+      enchantments:
+        THORNS: 10
+#itemflagi: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/inventory/ItemFlag.html#enum.constant.summary
+      itemFlags:
+        - HIDE_ATTRIBUTES
+        - HIDE_ENCHANTS
+    Crafting:
+      - '46|46|46'
+      - '46|57|46'
+      - '46|46|46'
+#delay w sekundach przed kolejnym tnt
+    Delay: 10
+#moc "rzucenia" tnt
+    Multiply: 1.8
+
+    Messages:
+      next: "&cNastepne tnt mozesz rzucic za {TIME}"
