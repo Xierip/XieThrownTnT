@@ -9,6 +9,7 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.plugin.java.JavaPlugin
 import pl.xierip.xiethrowntnt.commands.XieThrownTntCommand
 import pl.xierip.xiethrowntnt.listeners.PlayerInteractListener
+import pl.xierip.xiethrowntnt.metrics.MetricsLite
 import pl.xierip.xiethrowntnt.util.fixColors
 import pl.xierip.xiethrowntnt.util.registerCrafting
 import java.util.stream.Collectors
