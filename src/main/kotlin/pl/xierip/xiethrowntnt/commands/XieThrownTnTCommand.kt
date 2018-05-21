@@ -14,6 +14,10 @@ import java.util.*
  */
 class XieThrownTntCommand : Command("xiethrowntnt", "", "", Arrays.asList("xtt", "throwntnt")) {
     override fun execute(sender: CommandSender, commandLabel: String, args: Array<out String>): Boolean {
+        if (!sender.hasPermission("xiethrowntnt.admin")) {
+            sender.sendColoredMessage("&cNie posiadasz odpowiednich uprawnien! &7(&fxiethrowntnt.admin&7)")
+            return true
+        }
         if (args.size == 2) {
             val player: Player? = Bukkit.getPlayer(args[0])
             if (player == null) {
