@@ -84,7 +84,7 @@ fun FileConfiguration.registerCrafting(path: String, name: String, item: ItemSta
         return false
     }
     list.forEach { s ->
-        s.split("|").dropLastWhile({ it.isEmpty() }).forEach { st ->
+        s.split("|").forEach { st ->
             i++
             if (st == " ") {
                 shapeOfShape.append(" |")
@@ -97,10 +97,10 @@ fun FileConfiguration.registerCrafting(path: String, name: String, item: ItemSta
         }
     }
 
-    val stringShape = shapeOfShape.toString().split("|").dropLastWhile { it.isEmpty() }
+    val stringShape = shapeOfShape.toString().split("|")
     shape.shape(stringShape[0] + stringShape[1] + stringShape[2], stringShape[3] + stringShape[4] + stringShape[5], stringShape[6] + stringShape[7] + stringShape[8])
-    ingredients.forEach({ key, ingredient -> shape.setIngredient(key, ingredient) })
-    ingredientsData.forEach({ key, ingredient -> shape.setIngredient(key, ingredient) })
+    ingredients.forEach { key, ingredient -> shape.setIngredient(key, ingredient) }
+    ingredientsData.forEach { key, ingredient -> shape.setIngredient(key, ingredient) }
     Bukkit.addRecipe(shape)
     return true
 }
