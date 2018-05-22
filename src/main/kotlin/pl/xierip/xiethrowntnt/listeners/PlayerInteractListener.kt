@@ -36,6 +36,6 @@ class PlayerInteractListener : Listener {
         delays[event.player.uniqueId] = System.currentTimeMillis()
         event.player.inventory.removeItem(XieThrownTnT.instance!!.itemOne)
         val spawnEntity = event.player.world.spawnEntity(event.player.eyeLocation, EntityType.PRIMED_TNT)
-        spawnEntity.velocity = event.player.eyeLocation.direction.multiply(2)
+        spawnEntity.velocity = event.player.eyeLocation.direction.multiply(XieThrownTnT.instance!!.multiply)
     }
 }
