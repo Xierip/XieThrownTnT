@@ -20,7 +20,7 @@ import java.util.stream.Collectors
  */
 class XieThrownTnT : JavaPlugin() {
     companion object {
-        var instance: XieThrownTnT? = null
+        lateinit var instance: XieThrownTnT
             private set
     }
 
@@ -61,7 +61,7 @@ class XieThrownTnT : JavaPlugin() {
         }
         item.itemMeta = itemMeta
         if (config.getConfigurationSection("Xierip.XieThrownTnT.Item.enchantments") != null) {
-            config.getConfigurationSection("Xierip.XieThrownTnT.Item.enchantments").getKeys(false).forEach {
+            for (it in config.getConfigurationSection("Xierip.XieThrownTnT.Item.enchantments").getKeys(false)) {
                 val byName = Enchantment.getByName(it)
                 if (byName != null && config.isInt("Xierip.XieThrownTnT.Item.enchantments.$it"))
                     item.addUnsafeEnchantment(byName, config.getInt("Xierip.XieThrownTnT.Item.enchantments.$it"))

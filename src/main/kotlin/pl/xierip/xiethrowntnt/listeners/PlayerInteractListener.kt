@@ -22,20 +22,20 @@ class PlayerInteractListener : Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     fun onEvent(event: PlayerInteractEvent) {
         if (!event.hasItem()) return
-        if (!XieThrownTnT.instance!!.item.isSimilar(event.item)) return
+        if (!XieThrownTnT.instance.item.isSimilar(event.item)) return
         event.isCancelled = true
         if (event.action != Action.RIGHT_CLICK_AIR) return
-        if (!event.player.inventory.containsAtLeast(XieThrownTnT.instance!!.itemOne, 1)) return
+        if (!event.player.inventory.containsAtLeast(XieThrownTnT.instance.itemOne, 1)) return
         if (delays.containsKey(event.player.uniqueId)) {
-            val time = delays[event.player.uniqueId]!! + XieThrownTnT.instance!!.delay
+            val time = delays[event.player.uniqueId]!! + XieThrownTnT.instance.delay
             if (time > System.currentTimeMillis()) {
-                event.player.sendColoredMessage(XieThrownTnT.instance!!.messageDelay.replace("{TIME}", time.formatTimeTo()))
+                event.player.sendColoredMessage(XieThrownTnT.instance.messageDelay.replace("{TIME}", time.formatTimeTo()))
                 return
             }
         }
         delays[event.player.uniqueId] = System.currentTimeMillis()
-        event.player.inventory.removeItem(XieThrownTnT.instance!!.itemOne)
+        event.player.inventory.removeItem(XieThrownTnT.instance.itemOne)
         val spawnEntity = event.player.world.spawnEntity(event.player.eyeLocation, EntityType.PRIMED_TNT)
-        spawnEntity.velocity = event.player.eyeLocation.direction.multiply(XieThrownTnT.instance!!.multiply)
+        spawnEntity.velocity = event.player.eyeLocation.direction.multiply(XieThrownTnT.instance.multiply)
     }
 }

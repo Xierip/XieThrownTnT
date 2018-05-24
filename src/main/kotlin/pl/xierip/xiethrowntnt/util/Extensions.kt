@@ -83,8 +83,8 @@ fun FileConfiguration.registerCrafting(path: String, name: String, item: ItemSta
     if (list.size != 3) {
         return false
     }
-    list.forEach { s ->
-        s.split("|").forEach { st ->
+    for (s in list) {
+        for (st in s.split("|")) {
             i++
             if (st == " ") {
                 shapeOfShape.append(" |")
